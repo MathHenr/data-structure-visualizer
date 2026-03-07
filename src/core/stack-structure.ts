@@ -3,20 +3,22 @@ import { AnimationStep } from "@/types/animation";
 export class Stack<T> {
   #items: (T | null)[];
 
-  constructor(size: number) {
-    this.#items = new Array(size).fill(null);
+  constructor() {
+    this.#items = [];
   }
 
   peek() {
     const steps: AnimationStep[] = [];
 
+    const lastIndex = this.#items.length > 1 ? this.#items.length - 1 : 0;
+
     steps.push({
       type: "VISIT",
-      payload: { index: this.#items.length - 1 },
+      payload: { index: lastIndex },
       message: "Peeking value at the top of the stack.",
     });
 
-    return { steps, items: this.#items[this.#items.length - 1] };
+    return { steps, item: this.#items[this.#items.length - 1] };
   }
 
   pop() {

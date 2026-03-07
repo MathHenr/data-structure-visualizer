@@ -31,8 +31,9 @@ export function ControlPanel({
 
     switch (true) {
       case structure instanceof ArrayStructure: {
-        const idx = parseInt(inputIndex) || structure.get().length;
-        setDisplay(structure.push(idx, val));
+        const parsedIdx = parseInt(inputIndex);
+        const idx = isNaN(parsedIdx) ? structure.get().length : parsedIdx;
+        setDisplay(structure.setAt(idx, val));
         return;
       }
       case structure instanceof Stack: {
@@ -62,7 +63,7 @@ export function ControlPanel({
       case structure instanceof ArrayStructure: {
         const idx = parseInt(inputIndex);
         if (isNaN(idx)) return;
-        setDisplay(structure.pop(idx));
+        setDisplay(structure.removeAt(idx));
         return;
       }
       case structure instanceof Stack: {

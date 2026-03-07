@@ -11,7 +11,7 @@ import { ControlPanel } from "@/components/ControlPanel";
 import { useAnimationPlayer } from "@/hooks/useAnimationPlayer";
 
 export default function StackPage() {
-  const [structure] = useState(new Stack<number>(0));
+  const [structure] = useState(new Stack<number>());
 
   // Displayed structure
   const [displayStack, setDisplayStack] = useState<(number | null)[]>([]);
@@ -50,18 +50,14 @@ export default function StackPage() {
                   y: 0,
                   scale: 1,
                   backgroundColor:
-                    structure.get().length - 1 === index
-                      ? "#5ee9b6e8"
-                      : "#cad5e2",
+                    displayStack.length - 1 === index ? "#5ee9b6e8" : "#cad5e2",
                 }}
                 exit={{
                   opacity: 0.3,
                   y: -20,
-                  scale: structure.get().length - 1 === index ? 1.1 : 1,
+                  scale: displayStack.length - 1 === index ? 1.1 : 1,
                   backgroundColor:
-                    structure.get().length - 1 === index
-                      ? "red"
-                      : "transparent",
+                    displayStack.length - 1 === index ? "red" : "transparent",
                 }}
                 className="relative flex flex-col max-sm:w-[80%] max-sm:h-15 w-[45%] h-18 items-center justify-center border rounded shadow-2xl transition"
                 title={item?.toString()}
