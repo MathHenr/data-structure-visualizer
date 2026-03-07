@@ -11,13 +11,11 @@ export class Stack<T> {
   }
 
   pop() {
-    this.#items.pop();
-    return [...this.#items];
+    return this.#items.pop();
   }
 
   push(value: T) {
-    this.#items.push(value);
-    return [...this.#items];
+    return this.#items.push(value);
   }
 
   isEmpty() {
@@ -25,13 +23,15 @@ export class Stack<T> {
   }
 
   clear() {
-    while (this.#items.length > 1) {
-      this.pop();
-    }
+    this.#items = [];
     return;
   }
 
   size() {
     return this.#items.length;
+  }
+
+  get() {
+    return [...this.#items];
   }
 }

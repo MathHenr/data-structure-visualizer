@@ -1,16 +1,17 @@
 import clsx from "clsx";
 
-type ContainerProp = {
+type WrapperProp = {
   children: React.ReactNode;
 } & React.ComponentProps<"div">;
 
-export function Wrapper({ children, ...rest }: ContainerProp) {
+export function Wrapper({ children, className, ...rest }: WrapperProp) {
   return (
     <div
       className={clsx(
         "flex border border-slate-300/50 shadow-lg rounded",
-        rest.className,
+        className,
       )}
+      {...rest}
     >
       {children}
     </div>

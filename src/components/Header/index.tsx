@@ -1,11 +1,16 @@
+import clsx from "clsx";
+
 type HeaderProp = {
   title: string;
   subTitle: string;
 } & React.ComponentProps<"header">;
 
-export function Header({ title, subTitle }: HeaderProp) {
+export function Header({ title, subTitle, className, ...rest }: HeaderProp) {
   return (
-    <header className="flex flex-col max-sm:items-center">
+    <header
+      className={clsx("flex flex-col max-sm:items-center", className)}
+      {...rest}
+    >
       <h2 className="font-bold text-xl sm:text-3xl text-slate-900/80">
         {title}
       </h2>
