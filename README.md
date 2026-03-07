@@ -26,7 +26,7 @@ This project is currently under active development. The core architecture is bei
 
 - [ ] **Data Structures:** (Linked Lists, Trees, Graphs) 
 - [ ] Interactive data input (Randomize/Custom data sets)
-- [ ] Real-time pseudo-code highlighting
+- [x] Real-time highlighting
 
 ### 4. Final Polish
 
@@ -48,4 +48,4 @@ This project is currently under active development. The core architecture is bei
 
 ---
 
-_Last updated: February 2026_
+_Last updated:March 2026_
